@@ -8,7 +8,8 @@ conn = mysql.connector.connect(
     db = 'projeto_crud'
 )
 
-''' 
+
+'''
 if conn.is_connected():
     print('conectado com o banco')
 else:
