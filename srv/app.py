@@ -12,7 +12,11 @@ def main():
         #limpar campos 
         nomeEntry.delete(0, END)
         emailEntry.delete(0, END)
-        senhaEntry.delete(0, END)       
+        senhaEntry.delete(0, END)   
+
+    def deletar_user(email):
+        email = emailEntry.get()
+        services.remover_usuario(email)    
 
     def listar_usuario():
         usuarios = services.listar_usuario()
@@ -43,8 +47,7 @@ def main():
     janela.geometry('400x300')
     janela.title('Sistema de Gerenciamento de Usuario')
 
-
-    titulo = Label(janela, text= 'BAHIA', font=('Arial black', 20))
+    titulo = Label(janela, text= 'CRUD_BAHIA', font=('Arial black', 20))
     titulo.pack(pady= 20)
 
     #nome
@@ -76,6 +79,9 @@ def main():
 
     listar = Button(janela, text='Listar Usuario', width=15, command=listar_usuario)
     listar.place(x=140, y= 200)
+
+    remover = Button(janela, text='Remover', width= 10, command=lambda: deletar_user(email))
+    remover.place(x=270,y=200)
 
     janela.mainloop()
 
